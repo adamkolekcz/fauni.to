@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fauni.to — For Sale</title>
+  <link rel="icon" href="https://www.fauni.to/_assets/v11/2460abf6885d60c82decb0960e2fb528340b1499.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:  #F8F9F2;
+      --dark:   #1A2004;
+      --olive:  #2C3608;
+      --sage:   #7D9120;
+      --muted:  #5D6F18;
+      --border: #DDE5C8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100dvh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ─────────────────────────────── */
+    .page {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 40px 0;
+      align-items: start;
+    }
+
+    /* ── Left column ────────────────────────── */
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-right: 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    /* Logo SVG */
+    .logo {
+      display: block;
+      width: 220px;
+      height: auto;
+    }
+
+    .tagline {
+      font-size: .95rem;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 300px;
+    }
+
+    /* Domain table */
+    .domain-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+    .domain-table thead th {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--sage);
+      padding: 0 0 8px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .domain-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .domain-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .domain-table tbody td {
+      padding: 8px 0;
+      vertical-align: middle;
+    }
+    .domain-table .d-name {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: .92rem;
+    }
+    .domain-table .d-main .d-name {
+      color: var(--olive);
+    }
+    .badge-main {
+      display: inline-block;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: var(--dark);
+      color: var(--cream);
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .d-region {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    /* ── Right column ───────────────────────── */
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-left: 48px;
+    }
+
+    .sale-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--sage);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.4; transform:scale(1.5); }
+    }
+
+    .contact-heading {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .price-note {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--dark);
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .contact-item:hover {
+      border-color: var(--sage);
+      box-shadow: 0 2px 10px rgba(125,145,32,.12);
+    }
+    .contact-item svg {
+      flex-shrink: 0;
+      color: var(--sage);
+    }
+
+    .escrow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      color: var(--muted);
+      opacity: .8;
+    }
+    .escrow svg { flex-shrink: 0; }
+
+    /* ── Footer ─────────────────────────────── */
+    footer {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 32px;
+    }
+
+    /* ── Mobile ─────────────────────────────── */
+    @media (max-width: 640px) {
+      .page {
+        grid-template-columns: 1fr;
+        padding: 32px 24px 0;
+        gap: 32px;
+      }
+      .left {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 32px;
+      }
+      .right {
+        padding-left: 0;
+      }
+      footer {
+        padding: 20px 24px;
+        margin-top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ── Left: logo + domains ── -->
+    <div class="left">
+
+      <img class="logo" src="logo.png" alt="Fauni.to" />
+
+      <p class="tagline">Brand and domain portfolio for sale. A perfect foundation for a platform focused on animals and breeders.</p>
+
+      <!-- Domain table -->
+      <table class="domain-table">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Market</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="d-main">
+            <td class="d-name">fauni.to <span class="badge-main">primary</span></td>
+            <td class="d-region">Global</td>
+          </tr>
+          <tr>
+            <td class="d-name">faunito.com</td>
+            <td class="d-region">Global</td>
+          </tr>
+          <tr>
+            <td class="d-name">faunito.eu</td>
+            <td class="d-region">European Union</td>
+          </tr>
+          <tr>
+            <td class="d-name">faunito.de</td>
+            <td class="d-region">Germany</td>
+          </tr>
+          <tr>
+            <td class="d-name">faunito.pl</td>
+            <td class="d-region">Poland</td>
+          </tr>
+          <tr>
+            <td class="d-name">faunito.cz</td>
+            <td class="d-region">Czech Republic</td>
+          </tr>
+          <tr>
+            <td class="d-name">faunito.sk</td>
+            <td class="d-region">Slovakia</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- ── Right: contact ── -->
+    <div class="right">
+
+      <span class="sale-label">
+        <span class="dot"></span>
+        For sale
+      </span>
+
+      <div>
+        <h1 class="contact-heading">Interested in<br>buying this brand?</h1>
+      </div>
+
+      <p class="price-note">
+        Price on request.<br>
+        Selling the full portfolio as one package.
+      </p>
+
+      <div class="contact-items">
+        <a href="mailto:hello@adamkolek.com" class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          hello@adamkolek.com
+        </a>
+        <a href="tel:+420793920250" class="contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.05z"/></svg>
+          +420 793 920 250
+        </a>
+      </div>
+
+      <p class="escrow">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Transaction via verified escrow service
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <a
+      href="https://peaksite.cz"
+      target="_blank"
+      rel="noopener noreferrer"
+      style="display:flex;align-items:center;gap:6px;opacity:.35;transition:opacity .2s;flex-shrink:0;"
+      onmouseover="this.style.opacity='.65'"
+      onmouseout="this.style.opacity='.35'"
+      aria-label="Made by PeakSite"
+    >
+      <span style="font-size:.78rem;color:#5D6F18;white-space:nowrap;font-family:'Inter',sans-serif;">Made by</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none" width="72" height="18" aria-hidden="true">
+        <g transform="translate(4, 4)">
+          <polygon points="16,4 27,24 5,24" fill="none" stroke="#6C63FF" stroke-width="1.5" stroke-linejoin="round"/>
+          <polygon points="16,4 22,15 10,15" fill="#6C63FF" opacity="0.4"/>
+          <line x1="8" y1="24" x2="24" y2="24" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round"/>
+        </g>
+        <text x="46" y="27" font-family="'Inter', ui-sans-serif, system-ui, sans-serif" font-weight="700" font-size="22" fill="#1A2004" letter-spacing="-0.3">PeakSite</text>
+      </svg>
+    </a>
+  </footer>
+
+</body>
+</html>
