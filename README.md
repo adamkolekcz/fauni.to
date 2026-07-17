@@ -3,7 +3,7 @@
 A single-page landing site announcing that the **Fauni.to brand and domain portfolio is for
 sale** — a ready-made foundation for a platform focused on animals and breeders.
 
-**→ www.fauni.to**
+**→ fauni.to**
 
 ## The portfolio
 
